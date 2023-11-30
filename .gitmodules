@@ -1,0 +1,3 @@
+[submodule "rmsoft-assignment-submodule"]
+	path = rmsoft-assignment-submodule
+	url = https://github.com/CMHyuk/rmsoft-assignment-submodule.git
