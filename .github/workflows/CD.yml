@@ -57,7 +57,7 @@ jobs:
       - name: Deploy
         run: |
           aws deploy create-deployment \
-          --application-name rmsoft-codedeploy-application \
+          --application-name assignment-deploy-application \
           --deployment-config-name CodeDeployDefault.AllAtOnce \
           --deployment-group-name rmsoft-prod \
           --file-exists-behavior OVERWRITE \
