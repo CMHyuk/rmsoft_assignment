@@ -8,7 +8,7 @@ on:
 
 # 해당 yml 내에서 사용할 key - value
 env:
-  S3_BUCKET_NAME: rmsoft-bucket
+  S3_BUCKET_NAME: rmsoft-assignment-bucket
   PROJECT_NAME: rmsoft-assignment
 
 # workflow는 한개 이상의 job을 가지며, 각 job은 여러 step에 따라 단계를 나눌 수 있습니다.
@@ -65,5 +65,5 @@ jobs:
           --deployment-config-name CodeDeployDefault.AllAtOnce \
           --deployment-group-name rmsoft-prod \
           --file-exists-behavior OVERWRITE \
-          --s3-location bucket=rmsoft-bucket,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip \
+          --s3-location bucket=rmsoft-assignment-bucket,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip \
           --region ap-northeast-2 \
