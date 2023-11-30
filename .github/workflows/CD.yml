@@ -10,7 +10,7 @@ on:
 env:
   S3_BUCKET_NAME: rmsoft-bucket
   PROJECT_NAME: rmsoft-assignment
-  
+
 # workflow는 한개 이상의 job을 가지며, 각 job은 여러 step에 따라 단계를 나눌 수 있습니다.
 jobs:
   build:
@@ -33,11 +33,11 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
         shell: bash
-      
+
       - name: Build with Gradle
         run: ./gradlew build
         shell: bash
-        
+
       - name: Make zip file
         run: zip -r ./$GITHUB_SHA.zip .
         shell: bash
@@ -48,7 +48,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_S3_SECRET_KEY_ID }}
           aws-region: ${{ secrets.AWS_REGION }}
-          
+
       # script files 복사
       - name: Copy script
         run: cp ./scripts/*.sh ./deploy
@@ -57,9 +57,9 @@ jobs:
       - name: Deploy
         run: |
           aws deploy create-deployment \
-          --application-name rmsoft-application \
+          --application-name rmsoft-codedeploy-application \
           --deployment-config-name CodeDeployDefault.AllAtOnce \
-          --deployment-group-name rmsoft-cicd-prod \
+          --deployment-group-name rmsoft-prod \
           --file-exists-behavior OVERWRITE \
           --s3-location bucket=rmsoft-bucket,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip \
           --region ap-northeast-2 \
