@@ -51,5 +51,12 @@ jobs:
         run: cp ./scripts/*.sh ./deploy
       
       # S3에 업로드
-      - name: Upload to S3
-        run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://$S3_BUCKET_NAME/$PROJECT_NAME/$GITHUB_SHA.zip
+      - name: Deploy
+        run: |
+          aws deploy create-deployment \
+          --application-name rmsoft-codedeploy-application \
+          --deployment-config-name CodeDeployDefault.AllAtOnce \
+          --deployment-group-name rmsoft-prod \
+          --file-exists-behavior OVERWRITE \
+          --s3-location bucket=rmsoft-bucket,bundleType=zip,key=cicdtest/$GITHUB_SHA.zip \
+          --region ap-northeast-2 \
