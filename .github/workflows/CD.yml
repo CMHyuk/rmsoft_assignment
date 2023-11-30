@@ -61,9 +61,9 @@ jobs:
       - name: Deploy
         run: |
           aws deploy create-deployment \
-          --application-name assignment-deploy-application \
+          --application-name rmsoft-codedeploy-application \
           --deployment-config-name CodeDeployDefault.AllAtOnce \
-          --deployment-group-name assignment-prod \
+          --deployment-group-name rmsoft-prod \
           --file-exists-behavior OVERWRITE \
           --s3-location bucket=rmsoft-bucket,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip \
           --region ap-northeast-2 \
