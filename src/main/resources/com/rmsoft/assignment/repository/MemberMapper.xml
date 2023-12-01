@@ -4,13 +4,13 @@
 <mapper namespace="com.rmsoft.assignment.repository.MemberMapper">
 
     <insert id="save" useGeneratedKeys="true" keyProperty="memberId">
-        insert into member (email, password)
+        insert into Member (email, password)
         values (#{email}, #{password})
     </insert>
 
     <select id="findByEmail" resultType="Member">
         select *
-        from member
+        from Member
         where email = #{email}
     </select>
 
