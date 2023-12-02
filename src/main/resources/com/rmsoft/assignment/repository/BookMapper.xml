@@ -8,16 +8,17 @@
         values (#{bookName}, #{isbn}, #{isLoan})
     </insert>
 
-    <update id="updateBook">
+    <update id="updateBook" parameterType="com.rmsoft.assignment.request.BookUpdateRequest">
         UPDATE Book
-        SET bookName = #{bookUpdateRequest.bookName},
-            isbn     = #{bookUpdateRequest.isbn}
+        SET bookName = #{bookName},
+            isbn     = #{isbn}
         WHERE bookId = #{bookId}
     </update>
 
     <update id="updateLoanStatus">
         UPDATE Book
-        SET isLoan = #{isLoan}
+        SET bookName = #{bookUpdateRequest.bookName},
+            isLoan = #{bookUpdateRequest.isLoan}
         WHERE bookId = #{bookId}
     </update>
 
