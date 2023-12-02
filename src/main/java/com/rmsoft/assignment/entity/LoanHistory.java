@@ -1,11 +1,16 @@
 package com.rmsoft.assignment.entity;
 
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+import static lombok.AccessLevel.PROTECTED;
+
 @Getter
+@NoArgsConstructor(access = PROTECTED)
 public class LoanHistory {
 
     private Long loanHistoryId;
