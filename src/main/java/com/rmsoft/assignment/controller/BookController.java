@@ -19,7 +19,7 @@ public class BookController {
     }
 
     @PatchMapping("/update/{bookId}")
-    public void updateBook(@PathVariable Long bookId, BookUpdateRequest bookUpdateRequest) {
+    public void updateBook(@PathVariable Long bookId, @RequestBody BookUpdateRequest bookUpdateRequest) {
         bookService.updateBook(bookId, bookUpdateRequest);
     }
 
