@@ -9,13 +9,13 @@ public class Book {
     private Long bookId;
     private String bookName;
     private String isbn;
-    private LoanStatus loanStatus;
+    private Boolean isLoan;
 
     @Builder
-    public Book(String bookName, String isbn, LoanStatus loanStatus) {
+    public Book(String bookName, String isbn, Boolean isLoan) {
         this.bookName = bookName;
         this.isbn = isbn;
-        this.loanStatus = loanStatus;
+        this.isLoan = isLoan;
     }
 
 }
