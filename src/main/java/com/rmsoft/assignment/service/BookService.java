@@ -35,13 +35,15 @@ public class BookService {
         bookMapper.saveBook(book);
     }
 
-    //도서 수정 - 오류 발생
+    //도서 수정
     @Transactional
     public void updateBook(Long bookId, BookUpdateRequest bookUpdateRequest) {
         Book book = bookMapper.findById(bookId)
                 .orElseThrow(BookNotFound::new);
 
-        bookMapper.updateBook(book.getBookId(), bookUpdateRequest);
+        bookUpdateRequest.setBookId(book.getBookId());
+
+        bookMapper.updateBook(bookUpdateRequest);
     }
 
     //도서 대출
