@@ -19,18 +19,18 @@ public class BookController {
     }
 
     @PatchMapping("/update/{bookId}")
-    public void updateBook(@PathVariable Long bookId, BookUpdateRequest request) {
-        bookService.updateBook(bookId, request);
+    public void updateBook(@PathVariable Long bookId, @RequestBody BookUpdateRequest bookUpdateRequest) {
+        bookService.updateBook(bookId, bookUpdateRequest);
     }
 
     @PatchMapping("/borrow/{bookId}")
-    public void borrowBook(@PathVariable Long bookId, @RequestParam String email) {
-        bookService.borrowBook(bookId, email);
+    public void borrowBook(@PathVariable Long bookId, @RequestParam String email, @RequestParam Boolean isLoan) {
+        bookService.borrowBook(bookId, email, isLoan);
     }
 
     @PatchMapping("/return/{bookId}")
-    public void returnBook(@PathVariable Long bookId) {
-        bookService.returnBook(bookId);
+    public void returnBook(@PathVariable Long bookId, @RequestParam String email, @RequestParam Boolean isLoan) {
+        bookService.returnBook(bookId, email, isLoan);
     }
 
 }
