@@ -17,8 +17,7 @@
 
     <update id="updateLoanStatus">
         UPDATE Book
-        SET bookName = #{bookUpdateRequest.bookName},
-            isLoan = #{bookUpdateRequest.isLoan}
+        SET isLoan = #{isLoan}
         WHERE bookId = #{bookId}
     </update>
 
