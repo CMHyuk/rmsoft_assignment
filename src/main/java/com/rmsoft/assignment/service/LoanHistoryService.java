@@ -35,14 +35,11 @@ public class LoanHistoryService {
         Book book = bookMapper.findById(bookId)
                 .orElseThrow(BookNotFound::new);
 
-        Boolean isLoan = book.getIsLoan();
-
         LoanHistory loanHistory = LoanHistory.builder()
                 .bookName(book.getBookName())
                 .lender(member.getEmail())
-                .bookId(book.getBookId())
-                .localDate(now())
-                .isLoan(isLoan)
+                .loanReturnDate(now())
+                .isLoan(book.getIsLoan())
                 .build();
 
         loanHistoryMapper.saveLoanHistory(loanHistory);
@@ -55,7 +52,7 @@ public class LoanHistoryService {
                         .loanHistoryId(l.getLoanHistoryId())
                         .bookName(l.getBookName())
                         .lender(l.getLender())
-                        .localDate(l.getLocalDate())
+                        .loanReturnDate(l.getLoanReturnDate())
                         .build())
                 .collect(Collectors.toList());
     }
