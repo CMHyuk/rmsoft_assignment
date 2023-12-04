@@ -48,7 +48,7 @@ public class BookService {
 
     //도서 대출
     @Transactional
-    public void borrowBook(Long bookId, String email, Boolean isLoan) {
+    public void borrowBook(Long bookId, String email) {
         Member member = memberMapper.findByEmail(email)
                 .orElseThrow(MemberNotFound::new);
 
@@ -60,13 +60,13 @@ public class BookService {
             throw new DuplicateLoanException();
         }
 
-        bookMapper.updateLoanStatus(bookId, isLoan);
+        bookMapper.updateLoanStatus(bookId, true);
         loanHistoryService.saveLoanHistory(bookId, email);
     }
 
     //도서 반납
     @Transactional
-    public void returnBook(Long bookId, String email, Boolean isLoan) {
+    public void returnBook(Long bookId, String email) {
         Book book = bookMapper.findById(bookId)
                 .orElseThrow(BookNotFound::new);
 
@@ -75,7 +75,7 @@ public class BookService {
             throw new BookNotLoanedException();
         }
 
-        bookMapper.updateLoanStatus(bookId, isLoan);
+        bookMapper.updateLoanStatus(bookId, false);
         loanHistoryService.saveLoanHistory(bookId, email);
     }
 

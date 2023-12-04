@@ -24,13 +24,13 @@ public class BookController {
     }
 
     @PatchMapping("/borrow/{bookId}")
-    public void borrowBook(@PathVariable Long bookId, @RequestParam String email, @RequestParam Boolean isLoan) {
-        bookService.borrowBook(bookId, email, isLoan);
+    public void borrowBook(@PathVariable Long bookId, @RequestParam String email) {
+        bookService.borrowBook(bookId, email);
     }
 
     @PatchMapping("/return/{bookId}")
-    public void returnBook(@PathVariable Long bookId, @RequestParam String email, @RequestParam Boolean isLoan) {
-        bookService.returnBook(bookId, email, isLoan);
+    public void returnBook(@PathVariable Long bookId, @RequestParam String email) {
+        bookService.returnBook(bookId, email);
     }
 
 }

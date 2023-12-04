@@ -4,9 +4,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static lombok.AccessLevel.PROTECTED;
 
 @Getter
@@ -14,9 +11,8 @@ import static lombok.AccessLevel.PROTECTED;
 public class Member {
 
     private Long memberId;
-    private String email;
+    private String email; //아이디 대신
     private String password;
-    private List<Book> books = new ArrayList<>();
 
     @Builder
     public Member(String email, String password) {

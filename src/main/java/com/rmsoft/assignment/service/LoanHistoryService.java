@@ -35,27 +35,24 @@ public class LoanHistoryService {
         Book book = bookMapper.findById(bookId)
                 .orElseThrow(BookNotFound::new);
 
-        Boolean isLoan = book.getIsLoan();
-
         LoanHistory loanHistory = LoanHistory.builder()
                 .bookName(book.getBookName())
                 .lender(member.getEmail())
-                .bookId(book.getBookId())
-                .localDate(now())
-                .isLoan(isLoan)
+                .loanReturnDate(now())
+                .isLoan(book.getIsLoan())
                 .build();
 
         loanHistoryMapper.saveLoanHistory(loanHistory);
     }
 
-    //대출 이력 조회 - 오류 발생
+    //대출 이력 조회
     public List<LoanHistoryResponse> findAllByBookName(String bookName) {
         List<LoanHistory> loanHistories = loanHistoryMapper.findAllByBookName(bookName);
         return loanHistories.stream().map(l -> LoanHistoryResponse.builder()
                         .loanHistoryId(l.getLoanHistoryId())
                         .bookName(l.getBookName())
                         .lender(l.getLender())
-                        .localDate(l.getLocalDate())
+                        .loanReturnDate(l.getLoanReturnDate())
                         .build())
                 .collect(Collectors.toList());
     }

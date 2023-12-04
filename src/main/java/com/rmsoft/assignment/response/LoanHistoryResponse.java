@@ -15,14 +15,14 @@ public class LoanHistoryResponse {
     private String bookName;
     private String lender;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate localDate;
+    private LocalDate loanReturnDate;
 
     @Builder
-    public LoanHistoryResponse(Long loanHistoryId, String bookName, String lender, LocalDate localDate) {
+    public LoanHistoryResponse(Long loanHistoryId, String bookName, String lender, LocalDate loanReturnDate) {
         this.loanHistoryId = loanHistoryId;
         this.bookName = bookName;
         this.lender = lender;
-        this.localDate = localDate;
+        this.loanReturnDate = loanReturnDate;
     }
 
 }
