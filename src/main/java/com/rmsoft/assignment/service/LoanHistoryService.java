@@ -48,7 +48,7 @@ public class LoanHistoryService {
         loanHistoryMapper.saveLoanHistory(loanHistory);
     }
 
-    //대출 이력 조회 - 오류 발생
+    //대출 이력 조회
     public List<LoanHistoryResponse> findAllByBookName(String bookName) {
         List<LoanHistory> loanHistories = loanHistoryMapper.findAllByBookName(bookName);
         return loanHistories.stream().map(l -> LoanHistoryResponse.builder()
