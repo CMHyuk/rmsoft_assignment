@@ -1,4 +1,6 @@
-package com.rmsoft.assignment.exception;
+package com.rmsoft.assignment.exception.loanhistory;
+
+import com.rmsoft.assignment.exception.ApplicationException;
 
 public class BookNotLoanedException extends ApplicationException {
 

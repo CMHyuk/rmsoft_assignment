@@ -1,4 +1,6 @@
-package com.rmsoft.assignment.exception;
+package com.rmsoft.assignment.exception.member;
+
+import com.rmsoft.assignment.exception.ApplicationException;
 
 public class AlreadyExistsEmailException extends ApplicationException {
 

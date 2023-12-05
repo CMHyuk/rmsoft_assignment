@@ -2,10 +2,10 @@ package com.rmsoft.assignment.service;
 
 import com.rmsoft.assignment.entity.Book;
 import com.rmsoft.assignment.entity.Member;
-import com.rmsoft.assignment.exception.BookNotFound;
-import com.rmsoft.assignment.exception.BookNotLoanedException;
-import com.rmsoft.assignment.exception.DuplicateLoanException;
-import com.rmsoft.assignment.exception.MemberNotFound;
+import com.rmsoft.assignment.exception.book.BookNotFound;
+import com.rmsoft.assignment.exception.loanhistory.BookNotLoanedException;
+import com.rmsoft.assignment.exception.loanhistory.DuplicateLoanException;
+import com.rmsoft.assignment.exception.member.MemberNotFound;
 import com.rmsoft.assignment.repository.BookMapper;
 import com.rmsoft.assignment.repository.MemberMapper;
 import com.rmsoft.assignment.request.BookSaveRequest;
