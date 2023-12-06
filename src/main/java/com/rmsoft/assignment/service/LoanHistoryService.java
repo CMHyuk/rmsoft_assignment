@@ -37,6 +37,7 @@ public class LoanHistoryService {
 
         LoanHistory loanHistory = LoanHistory.builder()
                 .bookName(book.getBookName())
+                .author(book.getAuthor())
                 .lender(member.getEmail())
                 .loanReturnDate(now())
                 .isLoan(book.getIsLoan())
@@ -48,11 +49,8 @@ public class LoanHistoryService {
     //대출 이력 조회
     public List<LoanHistoryResponse> findAllByBookName(String bookName) {
         List<LoanHistory> loanHistories = loanHistoryMapper.findAllByBookName(bookName);
-        return loanHistories.stream().map(l -> LoanHistoryResponse.builder()
-                        .loanHistoryId(l.getLoanHistoryId())
-                        .bookName(l.getBookName())
-                        .lender(l.getLender())
-                        .loanReturnDate(l.getLoanReturnDate())
+        return loanHistories.stream().map(loanHistory -> LoanHistoryResponse.builder()
+                        .loanHistory(loanHistory)
                         .build())
                 .collect(Collectors.toList());
     }
