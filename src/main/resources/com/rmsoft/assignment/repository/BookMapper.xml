@@ -4,14 +4,15 @@
 <mapper namespace="com.rmsoft.assignment.repository.BookMapper">
 
     <insert id="saveBook" useGeneratedKeys="true" keyProperty="bookId">
-        insert into Book (bookName, isbn, isLoan)
-        values (#{bookName}, #{isbn}, #{isLoan})
+        insert into Book (bookName, author, isbn, isLoan)
+        values (#{bookName}, #{author}, #{isbn}, #{isLoan})
     </insert>
 
     <update id="updateBook" parameterType="com.rmsoft.assignment.request.BookUpdateRequest">
         UPDATE Book
         SET bookName = #{bookName},
-            isbn     = #{isbn}
+            isbn     = #{isbn},
+            author   = #{author}
         WHERE bookId = #{bookId}
     </update>
 
