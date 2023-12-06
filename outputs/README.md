@@ -15,11 +15,10 @@
 <img width="651" alt="스크린샷 2023-12-05 오후 4 23 29" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/bbb4f3be-c034-4e04-9888-0f657b0cbf41">
 
 ### Book (도서)
-<img width="651" alt="스크린샷 2023-12-05 오후 4 23 40" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/782a1c54-fcb6-4603-a99c-506c39aae911">
-
+<img width="648" alt="스크린샷 2023-12-06 오후 2 19 59" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/58fe633c-5ea7-4891-ae4a-4f75df49d302">
 
 ### BookHistory (대출 이력)
-<img width="648" alt="스크린샷 2023-12-05 오후 4 23 51" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/888484c7-b242-4e66-a435-0026354f10ad">
+<img width="648" alt="스크린샷 2023-12-06 오후 2 20 25" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/1c97ee9e-7ff1-492e-99c7-c82b999da745">
 
 
 ## github( 본인의 개발위치 )  
