@@ -28,8 +28,10 @@ public class BookService {
     public void saveBook(BookSaveRequest request) {
         Book book = Book.builder()
                 .bookName(request.getBookName())
+                .author(request.getAuthor())
                 .isbn(request.getIsbn())
                 .isLoan(false) //처음 도서 등록할 때는 대출이 아닌 상태
+                .author(request.getAuthor())
                 .build();
 
         bookMapper.saveBook(book);
