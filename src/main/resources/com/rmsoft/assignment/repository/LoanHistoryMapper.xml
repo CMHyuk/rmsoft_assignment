@@ -4,8 +4,8 @@
 <mapper namespace="com.rmsoft.assignment.repository.LoanHistoryMapper">
 
     <insert id="saveLoanHistory" useGeneratedKeys="true" keyProperty="loanHistoryId">
-        insert into LoanHistory (bookName, lender, loanReturnDate, isLoan)
-        values (#{bookName}, #{lender}, #{loanReturnDate}, #{isLoan})
+        insert into LoanHistory (bookName, author, lender, loanReturnDate, isLoan)
+        values (#{bookName}, #{author}, #{lender}, #{loanReturnDate}, #{isLoan})
     </insert>
 
     <select id="findAllByBookName" resultType="com.rmsoft.assignment.entity.LoanHistory">

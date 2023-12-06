@@ -1,8 +1,17 @@
 ## ERD  
 
-<img width="715" alt="스크린샷 2023-12-04 오후 10 19 59" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/ecc68800-09a4-4a65-ab00-1c08a65b268a">
+<img width="711" alt="스크린샷 2023-12-06 오후 3 51 22" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/27d6127c-5a9b-4412-b595-f35165098eec">
 
 ## 테이블 정의서  
+
+### Member (회원)
+<img width="651" alt="스크린샷 2023-12-05 오후 4 23 29" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/bbb4f3be-c034-4e04-9888-0f657b0cbf41">
+
+### Book (도서)
+<img width="651" alt="스크린샷 2023-12-06 오후 3 58 07" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/0b7cbc5f-0dee-4f9c-9fde-7bcab1113de3">
+
+### BookHistory (대출 이력)
+<img width="647" alt="스크린샷 2023-12-06 오후 3 58 24" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/283047f3-ed11-4960-bc14-3393c206703c">
 
 ## 시스템 구성도
 
@@ -11,15 +20,12 @@
 
 ## 기능정의서  
 
-### Member (회원)
-<img width="651" alt="스크린샷 2023-12-05 오후 4 23 29" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/bbb4f3be-c034-4e04-9888-0f657b0cbf41">
+<img width="562" alt="스크린샷 2023-12-06 오후 2 51 01" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/517924f2-8af2-46d2-b454-96710a69d2a7">
 
-### Book (도서)
-<img width="651" alt="스크린샷 2023-12-05 오후 4 23 40" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/782a1c54-fcb6-4603-a99c-506c39aae911">
+<img width="472" alt="스크린샷 2023-12-06 오후 3 54 06" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/32682b82-217e-43c4-a6ec-b69df0262a3e">
 
+<img width="603" alt="스크린샷 2023-12-06 오후 3 55 08" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/8480eecd-148e-43cd-b293-e73772998df9">
 
-### BookHistory (대출 이력)
-<img width="648" alt="스크린샷 2023-12-05 오후 4 23 51" src="https://github.com/CMHyuk/rmsoft_assignment/assets/97818720/888484c7-b242-4e66-a435-0026354f10ad">
 
 
 ## github( 본인의 개발위치 )  
@@ -41,9 +47,12 @@ https://github.com/CMHyuk/rmsoft_assignment
 
 
 ## AWS 내부 구축 내용
-1. 깃허브상으로 코드를 Push 하게 되면 GitHub Actions이 자동으로 실행되어 CI (빌드) 작업을 수행하게 됩니다.
-2. 코드상에 문제가 없다면 이때 빌드 작업을 통해 jar파일이 생성되게 되고 사전에 작성한 배포 스크립트 파일과 함께 AWS의 스토리지 서비스인 S3에게 전달되어 저장되게 됩니다.
-3. S3에 성공적으로 저장되었다면 EC2에 설치한 CodeDeply Agent가 S3에 저장된 프로젝트 파일을 가져와서 내려받습니다.
-4. 그 후, 배포 스크립트 파일을 읽어 들여서 프로젝트 실행을 시작합니다.
+EC2와 IAM: AWS EC2 인스턴스는 CodeDeploy 에이전트가 설치된 호스트로, IAM 역할을 통해 S3 버킷 및 CodeDeploy에 필요한 권한을 부여받습니다.  
+
+CodeDeploy: GitHub 레포지토리에서 코드 변경 사항을 감지하고, 빌드된 아티팩트를 EC2 인스턴스로 배포합니다.  
+
+RDS: 애플리케이션 데이터베이스로 사용됩니다.  
+
+S3: 소스 코드 저장과 배포를 위한 버킷으로 사용됩니다.
    
    

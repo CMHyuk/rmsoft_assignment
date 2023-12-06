@@ -6,4 +6,5 @@ import lombok.Getter;
 public class BookSaveRequest {
     private String bookName;
     private String isbn;
+    private String author;
 }
