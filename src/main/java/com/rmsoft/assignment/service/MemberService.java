@@ -1,7 +1,7 @@
 package com.rmsoft.assignment.service;
 
 import com.rmsoft.assignment.entity.Member;
-import com.rmsoft.assignment.exception.AlreadyExistsEmailException;
+import com.rmsoft.assignment.exception.member.AlreadyExistsEmailException;
 import com.rmsoft.assignment.repository.MemberMapper;
 import com.rmsoft.assignment.request.MemberSaveRequest;
 import lombok.RequiredArgsConstructor;
